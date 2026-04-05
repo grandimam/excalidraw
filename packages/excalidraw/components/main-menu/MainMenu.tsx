@@ -6,7 +6,6 @@ import { useTunnels } from "../../context/tunnels";
 import { useUIAppState } from "../../context/ui-appState";
 import { t } from "../../i18n";
 import { useEditorInterface, useExcalidrawSetAppState } from "../App";
-import { UserList } from "../UserList";
 import DropdownMenu from "../dropdownMenu/DropdownMenu";
 import DropdownMenuSub from "../dropdownMenu/DropdownMenuSub";
 import { withInternalFallback } from "../hoc/withInternalFallback";
@@ -57,17 +56,6 @@ const MainMenu = Object.assign(
               align="start"
             >
               {children}
-              {editorInterface.formFactor === "phone" &&
-                appState.collaborators.size > 0 && (
-                  <fieldset className="UserList-Wrapper">
-                    <legend>{t("labels.collaborators")}</legend>
-                    <UserList
-                      mobile={true}
-                      collaborators={appState.collaborators}
-                      userToFollow={appState.userToFollow?.socketId || null}
-                    />
-                  </fieldset>
-                )}
             </DropdownMenu.Content>
           </DropdownMenu>
         </MainMenuTunnel.In>
